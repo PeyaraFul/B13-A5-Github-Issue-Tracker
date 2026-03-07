@@ -54,9 +54,7 @@
 
             <input type="radio" name="my_tabs_6" class="tab tabs-lift" aria-label="Closed" />
             <div class="tab-content bg-base-100 border-base-300 p-6">
-                
-                
-                
+                                
                 
                 </div>
 
@@ -90,6 +88,39 @@
 
 </main>
 
+
+<!-- dialog modal box  -->
+<dialog id="my_modal_1" class="modal">
+  <div class="modal-box">
+    <div>
+        <h2 id="modal-title" class="text-xl font-bold"> <!-- Title --> </h2>
+        
+        <div class="my-4 flex gap-4">
+            
+            <div id="modal-status" class="badge badge-success font-semibold"> <!-- status --> </div> • <span> Akash Mia</span> • <span>07-03-26</span> <br>
+        </div>
+        
+         <div id="modal-labels0" class="badge badge-secondary font-semibold text-orange-500 bg-[#FECACA] "> <!-- labels0 --> </div>
+        <div id="modal-labels1" class="badge badge-warning font-semibold text-yellow-700 bg-[#FDE68A]">  <!-- labels1 --> </div>
+        <p id="modal-description"> <!-- Description --> </p>
+    </div>
+
+    <div class="flex justify-between w-full p-10 rounded-lg bg-slate-100">
+        <div><span>Assignee</span><br>
+        <span id="modal-assignee"> <!-- Assignee-->  </span></div>
+
+        <div><span>Priority</span><br> 
+        <div id="modal-priority" class="badge badge-warning text-[#F59E0B] font-semibold bg-[#FFF6D1] "> <!-- Priority --> </div></div>
+    </div>
+
+    <div class="modal-action">
+      <form method="dialog">
+        <!-- if there is a button in form, it will close the modal -->
+        <button class="btn">Close</button>
+      </form>
+    </div>
+  </div>
+</dialog>
 
 <script src="./js/homePage.js"></script>
 

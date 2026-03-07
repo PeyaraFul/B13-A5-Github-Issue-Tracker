@@ -37,12 +37,13 @@ async function loadAllApi() {
 
             const dataTitle = element.title ;
             const dataDescription = element.description ; 
-            const datastatus = element.status ; 
+            const dataStatus = element.status ; 
             const dataAuthor = element.author ; 
             const dataPriority = element.priority ; 
             const dataLabels = element.labels ; 
             const dataLabels0 = element.labels[0] ; 
-            const dataCreatedAt = element.createdAt ; 
+            const dataCreatedAt = element.createdAt ;
+            const dataAssignee = element.assignee ; 
 
             function gettingDataLabels1(){
                 if(dataLabels.length ===2){
@@ -67,8 +68,9 @@ async function loadAllApi() {
             // CreatedAt
 
             const div = document.createElement('div') ;
-            div.className = `card bg-base-100 w-96 shadow-sm p-4 m-auto border ${datastatus === 'open' ? 'border-green-500' : 'border-purple-500' } border-t-[6px]` ;
-
+            div.className = `card bg-base-100 w-96 shadow-sm p-4 m-auto border ${dataStatus === 'open' ? 'border-green-500' : 'border-purple-500' } border-t-[6px]` ;
+            div.setAttribute('onclick', `my_modal_1.showModal()`);
+            
             div.innerHTML= `            
                 <div class="flex justify-between">
                     <img class="w-5" src="./assets/Open-Status.png" alt="">
@@ -86,40 +88,46 @@ async function loadAllApi() {
                     <p> ${dataAuthor} </p>
                     <p> ${dataCreatedAt} </p>
                 </div>
-               
-            `
 
-            div.setAttribute('onclick', `showModal('my_modal_1')`);
-
-            // <button class="btn" onclick="my_modal_1.showModal()">open modal</button>
-            function showModal(modal){
-                `<!-- Open the modal using ID.showModal() method -->
-                    
-                    <dialog id="my_modal_1" class="modal">
-                    <div class="modal-box">
-                        <h3 class="text-lg font-bold">Hello!</h3>
-                        <p class="py-4">Press ESC key or click the button below to close</p>
-                        <div class="modal-action">
-                        <form method="dialog">
-                            <!-- if there is a button in form, it will close the modal -->
-                            <button class="btn">Close</button>
-                        </form>
-                        </div>
-                    </div>
-                    </dialog
-                    >`
-
-            }
-            showModal() ;
-
+        
+            
+            `       
 
             allIssue.appendChild(div) ;
+
+
+            div.addEventListener('click', function(){
+                const modalTitle = document.getElementById('modal-title');
+                const modalStatus = document.getElementById('modal-status');
+                const modalLabels0 = document.getElementById('modal-labels0');
+                const modalLabels1 = document.getElementById('modal-labels1');
+                const modalDescription = document.getElementById('modal-description');
+                const modalAssignee = document.getElementById('modal-assignee');
+                const modalPriority = document.getElementById('modal-priority');
+               
+
+                // console.log(modalTitle)
+                modalTitle.innerText = dataTitle ;
+                modalStatus.innerText = dataStatus;
+                modalLabels0.innerText = dataLabels0.toUpperCase() ;
+                modalLabels1.innerText = gettingDataLabels1().toUpperCase() ;
+                modalDescription.innerText = dataDescription ;
+                modalAssignee.innerText = dataAssignee ;
+                modalPriority.innerText = dataPriority ;
+
+            })
+
         });
-   
+        
 
 
     }
     allIssueDataSet() ;
+
+
+
+
+
 
   
    }        
