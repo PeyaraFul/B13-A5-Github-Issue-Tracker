@@ -24,7 +24,7 @@
 
 
 
-        <nav class="navbar bg-base-100 flex justify-between shadow-sm">
+    <nav class="navbar stick z-10 top-0 bg-base-100 flex justify-between shadow-sm">
         <div class="flex gap-2">
             <img class="mx-auto w-8" src="./assets/github-logo.png" alt="github logo">
                 <h2 class="font-semibold mt-1 align-baseline text-[1rem]"> GitHub Issue Tracker </h2>
@@ -40,66 +40,58 @@
 
 
 
-<main class="mx-10">
+<main class="mx-10 bg-yellow-200">
     <!-- name of each tab group should be unique -->
-        <div class="tabs tabs-box">
-        <input type="radio" name="my_tabs_6" class="tab" aria-label="All"  checked="checked"/>
-        <div class="tab-content bg-base-100 border-base-300 p-6">Tab content 1</div>
+        <div class="tabs tabs-box  bg-blue-300 relative ">
+            <input type="radio" name="my_tabs_6" class="tab" aria-label="All"  checked="checked"/>
+            <div class="tab-content bg-base-100 bg-red-300 border-base-300 p-6">
+                <article id="all-issue" class=" overflow-scroll flex bg-green-300 flex-wrap gap-4 mt-20 p-4 rounded-lg h-screen">
+                </article>
+            </div>
 
-        <input type="radio" name="my_tabs_6" class="tab" aria-label="Open" />
-        <div class="tab-content bg-base-100 border-base-300 p-6">Open</div>
+            <input type="radio" name="my_tabs_6" class="tab" aria-label="Open" />
+            <div class="tab-content bg-base-100 border-base-300 p-6">Open</div>
 
-        <input type="radio" name="my_tabs_6" class="tab tabs-lift" aria-label="Closed" />
-        <div class="tab-content bg-base-100 border-base-300 p-6">Tab content 3</div>
-        </div>
+            <input type="radio" name="my_tabs_6" class="tab tabs-lift" aria-label="Closed" />
+            <div class="tab-content bg-base-100 border-base-300 p-6">
+                
+                
+                
+                
+                </div>
 
 
-
-<!-- dashboard -->
- <header class="flex bg-base justify-between p-4 ">
+ <header class="flex bg-base bg-pink-300 rounded-lg ml-[-4px] w-full justify-between p-4 absolute top-14 ">
     <div class="flex gap-2">
         <img src="./assets/Aperture.png" alt="">
         <div class=""> 
-            <h3 class=" font-bold text-[1.1rem]"> 50 Issue</h3>
-            <h4 class="text-neutral-500">Track and manage your issue</h4>
+            <h3 class=" font-bold text-[1.1rem]"> <span id="number-of-all-issue"> 0 </span> Issue</h3>
+            <h4 class="text-neutral-500 w-[100%]">Track and manage your issue</h4>
         </div>
         
 
     </div>
 
-    <div class="flex">
+    <div class="flex ">
             <div class="w-2.5 h-2.5 mt-1.5 mr-1 bg-green-500 rounded-full"></div> Open
             <div class="w-2.5 h-2.5 mt-1.5 mr-1 ml-3 bg-purple-500 rounded-full"></div> Closed
             
     </div>
  </header>
-             
-<article class="m-4">
 
-    <div class="card bg-base-100 w-96 shadow-sm p-4">
-        <div class="flex justify-between">
-            <img class="w-5" src="./assets/Open-Status.png" alt="">
-        <div class="badge badge-warning">Warning</div>
         </div>
-  <div class="card-body">
-    <h2 class="card-title">Card Title</h2>
-    <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
-    <div class="card-actions flex justify-start gap-5">
-        <div class="badge badge-secondary">Secondary</div>
-        <div class="badge badge-warning">Secondary</div>
-    </div>
-
-    <div class="divider"></div>
-    <p>kdjkfjdljfk4545d</p>
-    <p>12-12-2026</p>
-  </div>
-</div>
 
 
-</article>
+
+<!-- dashboard -->
+ 
+             
+
+
 </main>
 
 
+<script src="./js/homePage.js"></script>
 
 </body>
 </html>

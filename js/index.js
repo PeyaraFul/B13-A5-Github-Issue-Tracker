@@ -6,7 +6,7 @@ const loginPassword = document.getElementById('password');
 function goHomePage(p){
 if(userName.value === 'admin' && loginPassword.value === 'admin123'){
        
-        window.location.assign('./homePage.html') ;
+        // window.location.assign('./homePage.html') ;
          alert('login successfully') ;
     }
     else{
@@ -14,3 +14,4 @@ if(userName.value === 'admin' && loginPassword.value === 'admin123'){
     }
      
 }
+console.log('kjdklfjdjfedj')
