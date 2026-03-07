@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+
+    <!-- tailwind + daisyUI -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- google font  -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- font awesome -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./style.css/homePage.css">
+    <title>GitHub Issue Tracker | Homepage</title>
+</head>
+<body id="home" class="">
+
+
+
+        <nav class="navbar bg-base-100 flex justify-between shadow-sm">
+        <div class="flex gap-2">
+            <img class="mx-auto w-8" src="./assets/github-logo.png" alt="github logo">
+                <h2 class="font-semibold mt-1 align-baseline text-[1rem]"> GitHub Issue Tracker </h2>
+        </div>
+        <div class="flex gap-2">
+            <input type="text" placeholder="Search" class="input input-bordered w-24 md:w-auto" />
+            <div class="dropdown dropdown-end">
+            <button class="btn btn-primary">Primary</button>
+      
+            </div>
+        </div>
+    </nav>
+
+
+
+<main class="mx-10">
+    <!-- name of each tab group should be unique -->
+        <div class="tabs tabs-box">
+        <input type="radio" name="my_tabs_6" class="tab" aria-label="All"  checked="checked"/>
+        <div class="tab-content bg-base-100 border-base-300 p-6">Tab content 1</div>
+
+        <input type="radio" name="my_tabs_6" class="tab" aria-label="Open" />
+        <div class="tab-content bg-base-100 border-base-300 p-6">Open</div>
+
+        <input type="radio" name="my_tabs_6" class="tab tabs-lift" aria-label="Closed" />
+        <div class="tab-content bg-base-100 border-base-300 p-6">Tab content 3</div>
+        </div>
+
+
+
+<!-- dashboard -->
+ <header class="flex bg-base justify-between p-4 ">
+    <div class="flex gap-2">
+        <img src="./assets/Aperture.png" alt="">
+        <div class=""> 
+            <h3 class=" font-bold text-[1.1rem]"> 50 Issue</h3>
+            <h4 class="text-neutral-500">Track and manage your issue</h4>
+        </div>
+        
+
+    </div>
+
+    <div class="flex">
+            <div class="w-2.5 h-2.5 mt-1.5 mr-1 bg-green-500 rounded-full"></div> Open
+            <div class="w-2.5 h-2.5 mt-1.5 mr-1 ml-3 bg-purple-500 rounded-full"></div> Closed
+            
+    </div>
+ </header>
+             
+<article class="m-4">
+
+    <div class="card bg-base-100 w-96 shadow-sm p-4">
+        <div class="flex justify-between">
+            <img class="w-5" src="./assets/Open-Status.png" alt="">
+        <div class="badge badge-warning">Warning</div>
+        </div>
+  <div class="card-body">
+    <h2 class="card-title">Card Title</h2>
+    <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
+    <div class="card-actions flex justify-start gap-5">
+        <div class="badge badge-secondary">Secondary</div>
+        <div class="badge badge-warning">Secondary</div>
+    </div>
+
+    <div class="divider"></div>
+    <p>kdjkfjdljfk4545d</p>
+    <p>12-12-2026</p>
+  </div>
+</div>
+
+
+</article>
+</main>
+
+
+
+</body>
+</html>
