@@ -1,14 +1,10 @@
+// const variable declaration 
 const allIssue = document.getElementById("all-issue");
 const openIssue = document.getElementById("open-issue");
 const closedIssue = document.getElementById("closed-issue");
-
-// console.log(document.getElementsByClassName('tab'))
-
 let elementOfNumberOfAllIssue = document.getElementById("number-of-all-issue");
 let numberOfAllIssue = elementOfNumberOfAllIssue.innerText;
-
 const searchBtn = document.getElementById("search-btn");
-// console.log(searchBtn) ;
 
 let countAllIssue = 0;
 let countOpenIssue = 0;
@@ -16,6 +12,7 @@ let countClosedIssue = 0;
 let searchData = '' ;
 let searchValue = '' ;
 
+// loading spin is managed by this function
 const manageSpinner =(condition)=>{
   if(condition === true){
     document.querySelectorAll('.spinner').forEach(spin =>{spin.classList.remove('hidden')});
@@ -37,7 +34,7 @@ const manageSpinner =(condition)=>{
 
 
 
-
+// searching control system 
 searchBtn.addEventListener("click", function () {
   searchValue = document.getElementById("search-value").value.trim().toLowerCase();
 
@@ -49,26 +46,23 @@ searchBtn.addEventListener("click", function () {
 
   
 
-
+// load API from URL
 async function loadAllApi() {
   manageSpinner(true) ;
   const response = await fetch(
     "https://phi-lab-server.vercel.app/api/v1/lab/issues",
   );
   const data = await response.json();
-
   const searchUrl =
     "https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=";
 
   const searchResponse = await fetch(searchUrl + searchValue);
   searchData = await searchResponse.json();
-  // console.log(searchData) ;
 
-//   // set number of all issue
-//   let dataLength = data.data.length;
-//   elementOfNumberOfAllIssue.innerText = dataLength;
   const issues = searchValue ? searchData.data  : data.data
 
+
+  // making issue card div form API data 
   function divDataSet() {
     allIssue.innerHTML = "";
     openIssue.innerHTML = "";
@@ -91,16 +85,6 @@ async function loadAllApi() {
       const dataCreatedAt = element.createdAt;
       const dataAssignee = element.assignee;
 
-
-      // function gettingDataLabels1() {
-      //   if (dataLabels[1]) {
-      //     dataLabels1 = element.labels[1].toUpperCase();
-      //   }
-      //   else{
-      //     dataLabels1 = '' ;
-      //   }
-      // }
-      // gettingDataLabels1();
      
       const div = document.createElement("div");
       div.className = `card bg-base-100 min-h-[500px] shadow-sm p-4 m-auto border ${dataStatus === "open" ? "border-green-500" : "border-purple-500"} border-t-[6px]`;
@@ -141,7 +125,7 @@ async function loadAllApi() {
         countClosedIssue = closedIssue.children.length;
       }
 
-
+      //modal div control system
       div.addEventListener("click", function () {
         const modalAuthor = document.getElementById("modal-author");
         const modalTitle = document.getElementById("modal-title");
@@ -180,6 +164,8 @@ async function loadAllApi() {
       });
     });
 
+
+    // issue count function
     window.countIssue = function (id) {
       if (id === "all-tab") {
         elementOfNumberOfAllIssue.innerText = countAllIssue;
