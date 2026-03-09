@@ -16,6 +16,34 @@ let countClosedIssue = 0;
 let searchData = '' ;
 let searchValue = '' ;
 
+const manageSpinner =(condition)=>{
+  if(condition === true){
+    document.querySelectorAll('.spinner').forEach(spin =>{spin.classList.remove('hidden')});
+    allIssue.classList.add('hidden') ;
+    closedIssue.classList.add('hidden') ;
+    openIssue.classList.add('hidden') ;
+  }
+  else{
+    allIssue.classList.remove('hidden') ;
+    openIssue.classList.remove('hidden') ;
+    closedIssue.classList.remove('hidden') ;
+
+    document.querySelectorAll('.spinner').forEach(spin =>{spin.classList.add('hidden')});
+
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 searchBtn.addEventListener("click", function () {
   searchValue = document.getElementById("search-value").value.trim().toLowerCase();
@@ -30,6 +58,7 @@ console.log(searchValue);
 
 
 async function loadAllApi() {
+  manageSpinner(true) ;
   const response = await fetch(
     "https://phi-lab-server.vercel.app/api/v1/lab/issues",
   );
@@ -152,6 +181,7 @@ async function loadAllApi() {
     console.log(countClosedIssue) ;
   }
   divDataSet();
+  manageSpinner(false) ;
 }
 loadAllApi();
 

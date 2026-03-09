@@ -47,11 +47,14 @@
     <!-- name of each tab group should be unique -->
         <div class="tabs tabs-box  bg-blue-300 relative ">
             <input type="radio" name="my_tabs_6" class="tab" aria-label="All"  checked="checked" onclick="countIssue('all-tab')"/>
-            <div class="tab-content bg-base-100 bg-red-300 border-base-300 p-6 flex justify-center items-center">
+            <div class="tab-content bg-base-100 bg-red-300 border-base-300 p-6">
               
-                <article id="all-issue"  class=" overflow-scroll flex bg-green-300 flex-wrap gap-4 mt-20 p-4 hidd rounded-lg">
+                <article id="all-issue"  class=" overflow-scroll flex bg-green-300 flex-wrap gap-4 mt-20 p-4 rounded-lg">
                 </article>
-                <span class="loading loading-spinner text-neutral w-9 h-9 bg-slate-600"></span>
+                <article class="spinner flex justify-center items-center h-screen">
+                    <span class="loading loading-spinner loading-xl text-error w-9 h-9"></span>
+                </article>
+                
                 
             </div>
 
@@ -60,7 +63,9 @@
 
                 <article id="open-issue" class=" overflow-scroll flex bg-green-300 flex-wrap gap-4 mt-20 p-4 rounded-lg h-screen">
                 </article>
-
+                 <article class="spinner flex justify-center items-center h-screen">
+                    <span class="loading loading-spinner loading-xl text-neutral w-9 h-9"></span>
+                </article>
             </div>
 
             <input type="radio" id="closed-tab" name="my_tabs_6" class="tab tabs-lift closed-tab" aria-label="Closed" onclick="countIssue('closed-tab')" />
@@ -68,7 +73,9 @@
                                 
                 <article id="closed-issue" class=" overflow-scroll flex bg-green-300 flex-wrap gap-4 mt-20 p-4 rounded-lg">
                 </article>
-
+                <article class="spinner flex justify-center items-center h-screen">
+                    <span class="loading loading-spinner loading-xl text-accent w-9 h-9"></span>
+                </article>
 
                 </div>
 
