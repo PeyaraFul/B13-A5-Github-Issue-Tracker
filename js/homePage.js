@@ -38,20 +38,13 @@ const manageSpinner =(condition)=>{
 
 
 
-
-
-
-
-
-
-
 searchBtn.addEventListener("click", function () {
   searchValue = document.getElementById("search-value").value.trim().toLowerCase();
 
   loadAllApi();
-  console.log(searchData);
+ 
 });
-console.log(searchValue);
+
 
 
   
@@ -92,17 +85,22 @@ async function loadAllApi() {
       const dataStatus = element.status;
       const dataAuthor = element.author;
       const dataPriority = element.priority;
-      const dataLabels = element.labels;
+    
       const dataLabels0 = element.labels[0];
+      const dataLabels1 = element.labels[1] ? element.labels[1].toUpperCase() : '';
       const dataCreatedAt = element.createdAt;
       const dataAssignee = element.assignee;
 
-      function gettingDataLabels1() {
-        if (dataLabels.length === 2) {
-          return element.labels[1];
-        }
-      }
-      gettingDataLabels1();
+
+      // function gettingDataLabels1() {
+      //   if (dataLabels[1]) {
+      //     dataLabels1 = element.labels[1].toUpperCase();
+      //   }
+      //   else{
+      //     dataLabels1 = '' ;
+      //   }
+      // }
+      // gettingDataLabels1();
      
       const div = document.createElement("div");
       div.className = `card bg-base-100 min-h-[500px] shadow-sm p-4 m-auto border ${dataStatus === "open" ? "border-green-500" : "border-purple-500"} border-t-[6px]`;
@@ -110,7 +108,9 @@ async function loadAllApi() {
 
       div.innerHTML = `            
                 <div class="flex justify-between">
-                    <img class="w-5" src="./assets/Open-Status.png" alt="">
+                    <img class="w-5 ${dataStatus === 'open'? '' : 'hidden'}" src="./assets/Open-Status.png" alt="open status">
+                    <img class="w-5 ${dataStatus === 'closed'? '' : 'hidden'} " src="./assets/Closed-Status.png" alt="closed status">
+                    
                     <div class="badge badge-warning text-[#F59E0B] font-semibold bg-[#FFF6D1] "> ${dataPriority} </div>
                 </div>
                 <div class="card-body">
@@ -118,7 +118,7 @@ async function loadAllApi() {
                     <p> ${dataDescription} </p>
                     <div class="card-actions flex justify-start gap-5">
                         <div class="badge badge-secondary font-semibold text-orange-500 bg-[#FECACA] "> ${dataLabels0.toUpperCase()} </div>
-                        <div class="badge badge-warning font-semibold text-yellow-700 bg-[#FDE68A] ${gettingDataLabels1() === undefined ? "hidden" : ""} "> ${gettingDataLabels1()} </div>
+                        <div class="badge badge-warning font-semibold text-yellow-700 bg-[#FDE68A] ${dataLabels1 ? "" : "hidden"} "> ${dataLabels1} </div>
                     </div>
 
                     <div class="divider"></div>
@@ -157,10 +157,26 @@ async function loadAllApi() {
         modalTitle.innerText = dataTitle;
         modalStatus.innerText = dataStatus;
         modalLabels0.innerText = dataLabels0.toUpperCase();
-        modalLabels1.innerText = gettingDataLabels1().toUpperCase();
+        if(dataLabels1){
+          modalLabels1.classList.remove('hidden') ;
+          modalLabels1.innerText = dataLabels1;
+        }
+        else{
+          modalLabels1.innerText =''
+          modalLabels1.classList.add('hidden') ;
+        }
         modalDescription.innerText = dataDescription;
         modalAssignee.innerText = dataAssignee;
         modalPriority.innerText = dataPriority;
+
+        if(dataStatus === 'open'){
+          modalStatus.classList.remove('badge-warning')
+          modalStatus.classList.add('badge-success')
+        }
+        if(dataStatus === 'closed'){
+          modalStatus.classList.remove('badge-success')
+          modalStatus.classList.add('badge-warning')
+        }
       });
     });
 
@@ -188,4 +204,4 @@ loadAllApi();
 
 
 
-
+// ********** peyaraful ********** 
