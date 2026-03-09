@@ -29,10 +29,11 @@
             <img class="mx-auto w-8" src="./assets/github-logo.png" alt="github logo">
                 <h2 class="font-semibold mt-1 align-baseline text-[1rem]"> GitHub Issue Tracker </h2>
         </div>
+        <!-- onclick="xDataPass('search-value')"-->
         <div class="flex gap-2">
-            <input type="text" placeholder="Search" class="input input-bordered w-24 md:w-auto" />
+            <input id="search-value"  type="text" placeholder="Search Issue" class="input input-bordered w-24 md:w-auto" />
             <div class="dropdown dropdown-end">
-            <button class="btn btn-primary">Primary</button>
+            <button id="search-btn" class="btn btn-primary"> + New Issue </button>
       
             </div>
         </div>
@@ -41,21 +42,34 @@
 
 
 <main class="mx-10 bg-yellow-200">
+
+    <!-- tab tab  -->
     <!-- name of each tab group should be unique -->
         <div class="tabs tabs-box  bg-blue-300 relative ">
-            <input type="radio" name="my_tabs_6" class="tab" aria-label="All"  checked="checked"/>
-            <div class="tab-content bg-base-100 bg-red-300 border-base-300 p-6">
-                <article id="all-issue" class=" overflow-scroll flex bg-green-300 flex-wrap gap-4 mt-20 p-4 rounded-lg h-screen">
+            <input type="radio" name="my_tabs_6" class="tab" aria-label="All"  checked="checked" onclick="countIssue('all-tab')"/>
+            <div class="tab-content bg-base-100 bg-red-300 border-base-300 p-6 flex justify-center items-center">
+              
+                <article id="all-issue"  class=" overflow-scroll flex bg-green-300 flex-wrap gap-4 mt-20 p-4 hidd rounded-lg">
                 </article>
+                <span class="loading loading-spinner text-neutral w-9 h-9 bg-slate-600"></span>
+                
             </div>
 
-            <input type="radio" name="my_tabs_6" class="tab" aria-label="Open" />
-            <div class="tab-content bg-base-100 border-base-300 p-6">Open</div>
+            <input type="radio" id="open-tab" name="my_tabs_6" class="tab open-tab"  aria-label="Open" onclick="countIssue('open-tab')" />
+            <div class="tab-content bg-base-100 border-base-300 p-6">
 
-            <input type="radio" name="my_tabs_6" class="tab tabs-lift" aria-label="Closed" />
+                <article id="open-issue" class=" overflow-scroll flex bg-green-300 flex-wrap gap-4 mt-20 p-4 rounded-lg h-screen">
+                </article>
+
+            </div>
+
+            <input type="radio" id="closed-tab" name="my_tabs_6" class="tab tabs-lift closed-tab" aria-label="Closed" onclick="countIssue('closed-tab')" />
             <div class="tab-content bg-base-100 border-base-300 p-6">
                                 
-                
+                <article id="closed-issue" class=" overflow-scroll flex bg-green-300 flex-wrap gap-4 mt-20 p-4 rounded-lg">
+                </article>
+
+
                 </div>
 
 
@@ -64,13 +78,13 @@
         <img src="./assets/Aperture.png" alt="">
         <div class=""> 
             <h3 class=" font-bold text-[1.1rem]"> <span id="number-of-all-issue"> 0 </span> Issue</h3>
-            <h4 class="text-neutral-500 w-[100%]">Track and manage your issue</h4>
+            <h4 class="text-neutral-500 w-[250px]">Track and manage your issue</h4>
         </div>
         
 
     </div>
 
-    <div class="flex ">
+    <div class="flex">
             <div class="w-2.5 h-2.5 mt-1.5 mr-1 bg-green-500 rounded-full"></div> Open
             <div class="w-2.5 h-2.5 mt-1.5 mr-1 ml-3 bg-purple-500 rounded-full"></div> Closed
             
@@ -96,20 +110,20 @@
         <h2 id="modal-title" class="text-xl font-bold"> <!-- Title --> </h2>
         
         <div class="my-4 flex gap-4">
-            
-            <div id="modal-status" class="badge badge-success font-semibold"> <!-- status --> </div> • <span> Akash Mia</span> • <span>07-03-26</span> <br>
+
+            <div id="modal-status" class="badge badge-success text-xl p-3 font-semibold"> <!-- status --> </div> • <span id="modal-author" > <!-- Author  --> </span> • <span>07-03-26</span> <br>
         </div>
         
          <div id="modal-labels0" class="badge badge-secondary font-semibold text-orange-500 bg-[#FECACA] "> <!-- labels0 --> </div>
-        <div id="modal-labels1" class="badge badge-warning font-semibold text-yellow-700 bg-[#FDE68A]">  <!-- labels1 --> </div>
-        <p id="modal-description"> <!-- Description --> </p>
+        <div id="modal-labels1" class="badge badge-warning font-semibold ml-4 text-yellow-700 bg-[#FDE68A]">  <!-- labels1 --> </div>
+        <p id="modal-description" class="my-4 text-neutral-500"> <!-- Description --> </p>
     </div>
 
     <div class="flex justify-between w-full p-10 rounded-lg bg-slate-100">
-        <div><span>Assignee</span><br>
-        <span id="modal-assignee"> <!-- Assignee-->  </span></div>
+        <div><span>Assignee:</span><br>
+        <span id="modal-assignee" class="font-bold"> <!-- Assignee-->  </span></div>
 
-        <div><span>Priority</span><br> 
+        <div><span>Priority:</span><br> 
         <div id="modal-priority" class="badge badge-warning text-[#F59E0B] font-semibold bg-[#FFF6D1] "> <!-- Priority --> </div></div>
     </div>
 
@@ -122,7 +136,7 @@
   </div>
 </dialog>
 
-<script src="./js/homePage.js"></script>
+<script type="module" src="./js/homePage.js"></script>
 
 </body>
 </html>
