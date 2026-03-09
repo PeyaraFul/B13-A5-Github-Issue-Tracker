@@ -105,7 +105,7 @@ async function loadAllApi() {
       gettingDataLabels1();
      
       const div = document.createElement("div");
-      div.className = `card bg-base-100 w-96 shadow-sm p-4 m-auto border ${dataStatus === "open" ? "border-green-500" : "border-purple-500"} border-t-[6px]`;
+      div.className = `card bg-base-100 min-h-[500px] shadow-sm p-4 m-auto border ${dataStatus === "open" ? "border-green-500" : "border-purple-500"} border-t-[6px]`;
       div.setAttribute("onclick", `my_modal_1.showModal()`);
 
       div.innerHTML = `            

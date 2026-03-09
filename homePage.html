@@ -41,7 +41,7 @@
 
 
 
-<main class="mx-10 bg-yellow-200">
+<main class="md:mx-8 sm:mx-auto bg-yellow-200">
 
     <!-- tab tab  -->
     <!-- name of each tab group should be unique -->
@@ -49,7 +49,7 @@
             <input type="radio" name="my_tabs_6" class="tab" aria-label="All"  checked="checked" onclick="countIssue('all-tab')"/>
             <div class="tab-content bg-base-100 bg-red-300 border-base-300 p-6">
               
-                <article id="all-issue"  class=" overflow-scroll flex bg-green-300 flex-wrap gap-4 mt-20 p-4 rounded-lg">
+                <article id="all-issue"  class=" overflow-scroll grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1  bg-green-300 gap-4 mt-20 p-4 rounded-lg">
                 </article>
                 <article class="spinner flex justify-center items-center h-screen">
                     <span class="loading loading-spinner loading-xl text-error w-9 h-9"></span>
@@ -118,7 +118,7 @@
         
         <div class="my-4 flex gap-4">
 
-            <div id="modal-status" class="badge badge-success text-xl p-3 font-semibold"> <!-- status --> </div> • <span id="modal-author" > <!-- Author  --> </span> • <span>07-03-26</span> <br>
+            <div id="modal-status" class="badge badge-success text-xl p-3 font-semibold"> <!-- status --> </div> •  Opened by<span id="modal-author" ><!--Author--></span> • <span>07-03-26</span> <br>
         </div>
         
          <div id="modal-labels0" class="badge badge-secondary font-semibold text-orange-500 bg-[#FECACA] "> <!-- labels0 --> </div>
